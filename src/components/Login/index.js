@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import { fieldsValidation, checkInvalidForm } from "../formValidation";
+import { isLoggedIn, loginFn } from "./utils";
 import tempLogin from "./tempLogin.json";
 import "./login.css";
 
 const Login = (props) => {
+  useEffect(() => {
+    const userLoggedIn = isLoggedIn();
+    console.log("userLoggedIn", userLoggedIn);
+  }, []);
   const [invalidForm, setFormInvalid] = useState(true);
   const [fieldsValidationObj, setFieldValidation] = useState({
     email: {},
@@ -12,6 +17,7 @@ const Login = (props) => {
   });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [incorrectCreds, setIncorrectCreds] = useState(false);
 
   const inputChange = (e, field) => {
     const { value } = e.target;
@@ -34,8 +40,9 @@ const Login = (props) => {
     e.preventDefault();
     if (tempLogin?.email === email && tempLogin?.password === password) {
       console.log("hi", email, password);
+      loginFn(email);
     } else {
-      console.log("error");
+      setIncorrectCreds("Incorrect Credentials");
     }
   };
 
@@ -66,6 +73,9 @@ const Login = (props) => {
               {fieldsValidationObj.password.error}
             </Form.Text>
           </Form.Group>
+          <Form.Text className=" text-danger small ml-3">
+            {incorrectCreds}
+          </Form.Text>
           <button onClick={(e) => handleLogin(e)} disabled={invalidForm}>
             Log in
           </button>

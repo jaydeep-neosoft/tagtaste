@@ -38,6 +38,7 @@
 .background > .container > form button,
 button:hover,
 button:active {
+  margin-top: 10px;
   border: 0px;
   border-color: #747474;
   background-color: #747474;
