@@ -4,11 +4,12 @@ const isLoggedIn = () => {
 
 const loginFn = (history, email) => {
   localStorage.setItem("email", email);
-  history.push("/");
+  history.replace("/");
 };
 
-const logoutFn = () => {
+const logoutFn = (history) => {
   localStorage.removeItem("email");
+  history.replace("/login");
 };
 
 export { isLoggedIn, loginFn, logoutFn };
