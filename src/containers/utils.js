@@ -2,8 +2,9 @@ const isLoggedIn = () => {
   return localStorage.getItem("email") ? true : false;
 };
 
-const loginFn = (email) => {
+const loginFn = (history, email) => {
   localStorage.setItem("email", email);
+  history.push("/");
 };
 
 const logoutFn = () => {

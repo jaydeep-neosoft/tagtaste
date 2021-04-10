@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Container, Form } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import { fieldsValidation, checkInvalidForm } from "../formValidation";
-import { isLoggedIn, loginFn } from "./utils";
+import { isLoggedIn, loginFn } from "../utils";
 import tempLogin from "./tempLogin.json";
 import "./login.css";
 
-const Login = (props) => {
+const Login = () => {
+  const history = useHistory();
+
   useEffect(() => {
     const userLoggedIn = isLoggedIn();
-    console.log("userLoggedIn", userLoggedIn);
+    if (userLoggedIn) history.replace("/");
   }, []);
+
+  // state
   const [invalidForm, setFormInvalid] = useState(true);
   const [fieldsValidationObj, setFieldValidation] = useState({
     email: {},
@@ -40,7 +45,7 @@ const Login = (props) => {
     e.preventDefault();
     if (tempLogin?.email === email && tempLogin?.password === password) {
       console.log("hi", email, password);
-      loginFn(email);
+      loginFn(history, email);
     } else {
       setIncorrectCreds("Incorrect Credentials");
     }
