@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { isLoggedIn } from "../utils";
+import { isLoggedIn } from "../../components/Layouts/utils";
 
 const Dashboard = (props) => {
-  const history = useHistory();
-
-  useEffect(() => {
-    const userLoggedIn = isLoggedIn();
-    if (!userLoggedIn) history.replace("/login");
-  }, []);
-
   return (
     <div className="background">
       <Container>
