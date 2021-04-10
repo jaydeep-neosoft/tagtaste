@@ -20,7 +20,6 @@ const Login = (props) => {
     const newValidation = { ...fieldsValidationObj };
     newValidation[field] = validation;
     setFieldValidation(newValidation);
-    console.log("newValidation", newValidation);
     if (field === "email") {
       setEmail(value);
     } else if (field === "password") {
@@ -28,8 +27,6 @@ const Login = (props) => {
     }
 
     const formValidation = checkInvalidForm(newValidation);
-    console.log("formValidation", formValidation);
-
     setFormInvalid(formValidation);
   };
 
