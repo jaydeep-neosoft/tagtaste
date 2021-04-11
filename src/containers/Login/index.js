@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { fieldsValidation, checkInvalidForm } from "../formValidation";
 import { loginFn } from "../../components/Layouts/utils";
@@ -46,8 +46,8 @@ const Login = () => {
   };
 
   return (
-    <div className="background">
-      <Container>
+    <div className="login-background">
+      <div className="form-div">
         <h2>Log in</h2>
         <Form>
           <Form.Group>
@@ -79,7 +79,7 @@ const Login = () => {
             Log in
           </button>
         </Form>
-      </Container>
+      </div>
     </div>
   );
 };

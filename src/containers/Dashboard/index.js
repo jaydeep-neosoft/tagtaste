@@ -5,10 +5,10 @@ import "./dashboard.css";
 const Dashboard = (props) => {
   return (
     <React.Fragment>
-      <div className="background">
-        <Header />
+      <Header />
+      <div className="dashboard-background">
         <div className="dashboard-content">
-          <h5>Welcome to the page!</h5>
+          <h5 className="mt-4">Welcome to the page!</h5>
         </div>
       </div>
     </React.Fragment>
