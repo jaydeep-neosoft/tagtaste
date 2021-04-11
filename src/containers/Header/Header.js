@@ -28,14 +28,14 @@ const Header = () => {
       <Link to="/">
         <img src="/logo.png" id="logo_header" alt="logo" className="logo" />
       </Link>
-      <div className="search" ref={avatarRef}>
+      <div className="avatar-div" ref={avatarRef}>
         <img
           src="/avatar.jpg"
           id="avatar_header"
           alt="avatar"
           onClick={() => setShowAvatarMenu((preVal) => !preVal)}
         />
-        <div className={avatarMenuShow ? `avatar-menu` : `d-none`}>
+        <div className={avatarMenuShow ? "avatar-menu" : "d-none"}>
           <div className="user-logout" onClick={() => logoutFn(history)}>
             Logout
           </div>

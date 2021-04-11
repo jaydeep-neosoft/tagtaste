@@ -8,7 +8,7 @@ const Dashboard = (props) => {
       <Header />
       <div className="dashboard-background">
         <div className="dashboard-content">
-          <h5 className="mt-4">Welcome to the page!</h5>
+          <h5 className="mt-2">Welcome, to the page!</h5>
         </div>
       </div>
     </React.Fragment>

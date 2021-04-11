@@ -1,27 +1,49 @@
 header {
-  top: 0;
-  left: 0;
-  width: 100%;
+  width: 100vw;
   display: flex !important;
+  position: absolute;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
   padding: 5px 100px;
   z-index: 10;
   background-color: #fff;
-  box-shadow: 1px 7px 5px -8px grey;
+  box-shadow: 1px 7px 5px -8px #232323;
 }
 
-header .search {
+@media screen and (min-width: 0px) and (max-width: 575px) {
+  header {
+    display: flex !important;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 30px;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: 1px 7px 5px -8px grey;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .avatar-div img {
+    position: relative;
+    width: 40px !important;
+    border-radius: 30px;
+    margin-left: auto;
+    cursor: pointer;
+  }
+}
+
+.avatar-div {
   position: relative;
   margin-left: auto;
 }
-header .search img {
+.avatar-div img {
   position: relative;
   width: 50px;
   border-radius: 30px;
-  top: 0;
-  left: 0;
   margin-left: auto;
   cursor: pointer;
 }
